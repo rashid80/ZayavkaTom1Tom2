@@ -1,3 +1,5 @@
+using Microsoft.Extensions.DependencyInjection;
+
 namespace ZayavkaTom1Tom2
 {
     internal static class Program
@@ -8,10 +10,19 @@ namespace ZayavkaTom1Tom2
         [STAThread]
         static void Main()
         {
-            // To customize application configuration such as set high DPI settings or default font,
-            // see https://aka.ms/applicationconfiguration.
+
+            // Настройка DI контейнера
+            var services = new ServiceCollection();
+            services.AddSingleton<ExcelReader>();
+            services.AddSingleton<OrderListReader>();
+            services.AddSingleton<OrderProcessor>();
+            services.AddTransient<MainForm>();
+
+            var serviceProvider = services.BuildServiceProvider();
+
+
             ApplicationConfiguration.Initialize();
-            Application.Run(new Form1());
+            Application.Run(serviceProvider.GetRequiredService<MainForm>());
         }
     }
 }
