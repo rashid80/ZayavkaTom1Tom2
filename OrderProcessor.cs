@@ -1,11 +1,17 @@
-﻿public class OrderProcessor(OrderListReader orderListReader)
+﻿using ClosedXML.Excel;
+
+public class OrderProcessor(
+    OrderListReader orderListReader,
+    ReportGenerator reportGenerator
+    )
 {
 
-    public void ProcessOrder(string filePath)
+    public List<String> ProcessOrders(string filePath, String outputDirectory)
     {
-        var orders = orderListReader.ReadOrderListFile(filePath);
 
-        var a = orders.First();
+        return orderListReader.ReadOrderListFile(filePath)
+            .SelectMany(order => reportGenerator.GenerateReports(order, outputDirectory))
+            .ToList();
     }
 }
 

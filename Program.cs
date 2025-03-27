@@ -15,6 +15,7 @@ namespace ZayavkaTom1Tom2
             var services = new ServiceCollection();
             services.AddSingleton<ExcelReader>();
             services.AddSingleton<OrderListReader>();
+            services.AddSingleton<ReportGenerator>();
             services.AddSingleton<OrderProcessor>();
             services.AddTransient<MainForm>();
 

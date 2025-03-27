@@ -38,6 +38,9 @@
             buttonFileBrowse = new Button();
             labelFilePath = new Label();
             buttonProcess = new Button();
+            labelOutputDir = new Label();
+            textBoxOutputDir = new TextBox();
+            buttonFolderBrouse = new Button();
             SuspendLayout();
             // 
             // textBoxFilePath
@@ -68,7 +71,7 @@
             // 
             // buttonProcess
             // 
-            buttonProcess.Location = new Point(485, 45);
+            buttonProcess.Location = new Point(485, 103);
             buttonProcess.Name = "buttonProcess";
             buttonProcess.Size = new Size(240, 29);
             buttonProcess.TabIndex = 3;
@@ -76,11 +79,40 @@
             buttonProcess.UseVisualStyleBackColor = true;
             buttonProcess.Click += buttonProcess_Click;
             // 
+            // labelOutputDir
+            // 
+            labelOutputDir.AutoSize = true;
+            labelOutputDir.Location = new Point(13, 54);
+            labelOutputDir.Name = "labelOutputDir";
+            labelOutputDir.Size = new Size(151, 20);
+            labelOutputDir.TabIndex = 4;
+            labelOutputDir.Text = "Папка для выгрузки:";
+            // 
+            // textBoxOutputDir
+            // 
+            textBoxOutputDir.Location = new Point(170, 51);
+            textBoxOutputDir.Name = "textBoxOutputDir";
+            textBoxOutputDir.Size = new Size(522, 27);
+            textBoxOutputDir.TabIndex = 5;
+            // 
+            // buttonFolderBrouse
+            // 
+            buttonFolderBrouse.Location = new Point(698, 51);
+            buttonFolderBrouse.Name = "buttonFolderBrouse";
+            buttonFolderBrouse.Size = new Size(27, 27);
+            buttonFolderBrouse.TabIndex = 6;
+            buttonFolderBrouse.Text = "...";
+            buttonFolderBrouse.UseVisualStyleBackColor = true;
+            buttonFolderBrouse.Click += buttonFolderBrouse_Click;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(742, 153);
+            Controls.Add(buttonFolderBrouse);
+            Controls.Add(textBoxOutputDir);
+            Controls.Add(labelOutputDir);
             Controls.Add(buttonProcess);
             Controls.Add(labelFilePath);
             Controls.Add(buttonFileBrowse);
@@ -99,5 +131,8 @@
         private Button buttonFileBrowse;
         private Label labelFilePath;
         private Button buttonProcess;
+        private Label labelOutputDir;
+        private TextBox textBoxOutputDir;
+        private Button buttonFolderBrouse;
     }
 }
